@@ -20,10 +20,9 @@ jobs:
         run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
       - id: env-setup
         run: |
-          echo "env_token=abc12" >> $GITHUB_OUTPUT
+          echo "env_token=abc" >> $GITHUB_OUTPUT
       - run: |
           echo "${{ steps.env-setup.outputs.env_token }}"
-
       - name: Commit and push version increments
         run: |
           git config user.name "P1989singh"
