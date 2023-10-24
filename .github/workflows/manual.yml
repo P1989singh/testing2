@@ -15,15 +15,13 @@ jobs:
       - name: Read current versions
         id: read_version
         run: echo "::set-output name=version::$(cat ./.github/workflows/version.txt)"
-
       - name: Increment PATCH version
         id: increment_version
         run: echo $((($(echo ${{ steps.read_version.outputs.version }} | tr -d '.')+1))) > ./version.txt
-
-        - id: env-setup
+        id: env-setup
         run: |
           echo "env_token=production" >> $GITHUB_OUTPUT
-      - run: |
+        run: |
           echo "${{ steps.env-setup.outputs.env_token }}"        
 
       
