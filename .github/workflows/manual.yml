@@ -23,6 +23,7 @@ jobs:
           echo "env_token=abc" >> $GITHUB_OUTPUT
       - run: |
           echo "${{ steps.env-setup.outputs.env_token }}"
+          
       - name: Commit and push version increment
         run: |
           git config user.name "P1989singh"
