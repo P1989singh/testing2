@@ -25,7 +25,7 @@ jobs:
           git config user.name "P1989singh"
           git config user.email "prmkmrsingh@yahoo.in"
           git add ./.github/workflows/version.txt
-          git commit -m "Increment version to $(cat version.txt)"
+          git commit -m "Increment version to $(cat $HOME/version.txt)"
           git push -u origin main
 
        #   - name: Deploy database scripts
