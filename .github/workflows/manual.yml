@@ -14,18 +14,18 @@ jobs:
 
       - name: Read current versions
         id: read_version
-        run: echo "::set-output name=version::$(cat $HOME/version.txt)"
+        run: echo "::set-output name=version::$(cat ./.github/workflows/version.txt)"
 
       - name: Increment PATCH version
         id: increment_version
-        run: echo $((($(echo ${{ steps.read_version.outputs.version }} | tr -d '.')+1))) > VERSION.txt
+        run: echo $((($(echo ${{ steps.read_version.outputs.version }} | tr -d '.')+1))) > version.txt
       
       - name: Commit and push version increment
         run: |
           git config user.name "P1989singh"
           git config user.email "prmkmrsingh@yahoo.in"
           git add version.txt
-          git commit -m "Increment version to $(cat $HOME/version.txt)"
+          git commit -m "Increment version to $(cat ./.github/workflows/version.txt)"
           git push -u origin main
 
        #   - name: Deploy database scripts
