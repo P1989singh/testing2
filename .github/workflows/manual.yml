@@ -18,7 +18,7 @@ jobs:
 
       - name: Increment PATCH version
         id: increment_version
-        run: echo $((($(echo ${{ steps.read_version.outputs.version }} | tr -d '.')+1))) > ./.github/workflows/version.txt
+        run: echo $((($(echo ${{ steps.read_version.outputs.version }} | tr -d '.')+1))) > ./version.txt
 
         - id: env-setup
         run: |
