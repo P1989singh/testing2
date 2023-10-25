@@ -7,7 +7,7 @@ on: push
 jobs:
   release:
     
-    if: github.repository == 'testing2/demo.txt'
+    if: github.repository != 'testing2/demo.txt'
     runs-on: ubuntu-latest
 
     steps:
