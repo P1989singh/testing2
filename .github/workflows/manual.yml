@@ -15,7 +15,7 @@ jobs:
       - name: Read current versions
         id: read_version
         run: echo "filename=version.txt >>$GITHUB_OUTPUT"
-      - name: Increment PATCH versions
+      - name: Increment PATCH version
         id: increment_version
         run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
       - id: env-setup
