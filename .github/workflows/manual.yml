@@ -5,8 +5,8 @@ on: push
   #  - cron: '0 0 * * 0'  # Run every Sunday at midnight
 
 jobs:
- # release:
-  production-deploy:
+  release:
+    
     if: github.repository == 'testing2/demo.txt'
     runs-on: ubuntu-latest
 
