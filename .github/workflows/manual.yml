@@ -7,7 +7,7 @@ on: push
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.repository == 'testing2/demo'
+    if: github.repository == 'P1989singh/testing2/demo'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
