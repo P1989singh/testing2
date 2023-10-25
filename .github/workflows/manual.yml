@@ -5,7 +5,9 @@ on: push
   #  - cron: '0 0 * * 0'  # Run every Sunday at midnight
 
 jobs:
-  release:
+ # release:
+  production-deploy:
+    if: github.repository == 'testing2/demo.txt'
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +22,7 @@ jobs:
         run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
       - id: env-setup
         run: |
-          echo "env_token=abc" >> $GITHUB_OUTPUT
+          echo "env_token=demo12" >> $GITHUB_OUTPUT
       - run: |
           echo "${{ steps.env-setup.outputs.env_token }}"
           
@@ -29,7 +31,7 @@ jobs:
           git config user.name "P1989singh"
           git config user.email "prmkmrsingh@yahoo.in"
           git add version.txt
-          git commit -m "Increment version to ${{ steps.read_version.outputs.filename }}"
+          git commit -m "Increment version to ${{ steps.env-setup.outputs.env_token }}"
           git push -u origin main
        #   - name: Deploy database scripts
         # Add your script deployment commands here
