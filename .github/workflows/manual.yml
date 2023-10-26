@@ -7,14 +7,14 @@ on: push
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.repository == 'P1989singh/testing2/demo'
+    # if: github.repository != 'P1989singh/testing2/demo'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Read current versions
         id: read_version
-        run: echo "filename= cat version.txt >>  $GITHUB_OUTPUT"
+        run: echo "filename= $(cat version.txt)" >>  $GITHUB_OUTPUT
       - name: Increment PATCH version
         id: increment_version
         run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
@@ -29,7 +29,7 @@ jobs:
           git config user.name "P1989singh"
           git config user.email "prmkmrsingh@yahoo.in"
           git add version.txt
-          git commit -m "Increment version to ${{ steps.env-setup.outputs.env_token }}"
+          git commit -m "Increment version to ${{ steps.read_version.outputs.filename }}"
           git push -u origin main
        #   - name: Deploy database scripts
         # Add your script deployment commands here
