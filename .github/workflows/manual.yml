@@ -25,10 +25,10 @@ jobs:
       - name: Read current versions
         id: read_version
       - run: echo "${{steps.versioning.outputs.version}}"
-        run: echo "filename= $(cat version.txt)" >>  $GITHUB_OUTPUT
+      # run: echo "filename= $(cat version.txt)" >>  $GITHUB_OUTPUT
       - name: Increment PATCH version
         id: increment_version
-        run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
+       # run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
       - id: env-setup
         run: |
             echo "env_token=demo12" >> $GITHUB_OUTPUT
