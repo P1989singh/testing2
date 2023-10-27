@@ -22,7 +22,19 @@ jobs:
           major_pattern: "Breaking Change" 
           minor_pattern: "feat:"
           format : "v${major}.${minor}.${patch}-prerelease ${increment}"
-              
+      - name: Read current versions
+          id: read_version
+          run: echo ${{steps.versioning.outputs.version}}
+          run: echo "filename= $(cat version.txt)" >>  $GITHUB_OUTPUT
+      - name: Increment PATCH version
+          id: increment_version
+          run: echo $((($(echo ${{ steps.read_version.outputs.filename }} | tr -d '.')+1))) > ./version.txt
+        - id: env-setup
+          run: |
+            echo "env_token=demo12" >> $GITHUB_OUTPUT
+        - run: |
+            echo "${{ steps.env-setup.outputs.env_token }}"   
+
       - name: Commit and push version increment
         run: |
           git config user.name "P1989singh"
