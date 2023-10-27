@@ -24,7 +24,7 @@ jobs:
           format : "v${major}.${minor}.${patch}-prerelease ${increment}"
       - name: Read current versions
           id: read_version
-          run: echo ${{steps.versioning.outputs.version}}
+          run: echo "${{steps.versioning.outputs.version}}"
           run: echo "filename= $(cat version.txt)" >>  $GITHUB_OUTPUT
       - name: Increment PATCH version
           id: increment_version
