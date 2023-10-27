@@ -18,10 +18,10 @@ jobs:
         uses: paulHatch/semantic-version@v4.0.2
         with:
           branch: main
-          tag_prefix:"v"
-          major_pattern:"Breaking Change"
+          tag_prefix: "v"
+          major_pattern: "Breaking Change" 
           minor_pattern: "feat:"
-          format :"v${major}.${minor}.${patch}-prerelease ${increment}"
+          format : "v${major}.${minor}.${patch}-prerelease ${increment}"
       - name: Read current versions
         id: read_version
         run: echo ${{steps.versioning.outputs.version}}
