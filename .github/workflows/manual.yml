@@ -29,13 +29,4 @@ jobs:
           for file in ${{steps.changed-files.outputs.all_changed_files}};do
             echo "$file was changed"
           done
-
-      - name: Commit and push version increments
-        run: | 
-          git config user.name "P1989singh"
-          git config user.email "prmkmrsingh@yahoo.in"
-          git add version.txt
-          git commit -m "Semantic version increment ${{steps.versioning.outputs.version}}"    
-          git push -u origin main
-     
-     
+   
