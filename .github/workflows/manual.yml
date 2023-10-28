@@ -28,4 +28,4 @@ jobs:
           echo "One or more files in the SRC folder has changed."
 
           echo "List all the files that have changed:
-          ${{steps.changed-files-specific.outputs.all_changed_files}}"
+          ${{steps.changed-files.outputs.all_changed_files}}"
