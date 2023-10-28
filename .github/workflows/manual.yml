@@ -23,9 +23,8 @@ jobs:
         with: 
            files: src/*.{txt,sql}
       - name: List all changed file
-        if: steps.changed-files.outputs.any_changed=='true'
-        run: >
+        if: steps.changed-files.outputs.any_changed =='true'
+        run: | 
           echo "One or more files in the SRC folder has changed."
 
-          echo "List all the files that have changed:
-          ${{steps.changed-files.outputs.all_changed_files}}"
+          echo "List all the files that have changed: ${{steps.changed-files.outputs.all_changed_files}}"
