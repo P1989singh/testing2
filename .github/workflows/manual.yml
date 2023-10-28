@@ -26,7 +26,7 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files:src/*.{.txt,.sql}
-          files_ignore: src/static.js
+          files_ignore:src/static.js
       - name: List all changed file
         if: steps.changed-files.outputs.any_changed=='true'
         run: | 
