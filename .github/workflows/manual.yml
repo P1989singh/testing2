@@ -20,7 +20,8 @@ jobs:
       - name: Get Changed Files
         id: changed-files
         uses: tj-actions/changed-files@v40
-        with: 'files: src/*.{txt,sql} files_ignore: src/static.js'
+        with: 
+           files: src/*.{txt,sql}
       - name: List all changed file
         if: steps.changed-files.outputs.any_changed=='true'
         run: >
