@@ -24,7 +24,7 @@ jobs:
       - name: Get Changed Files
         id: changed-files
         uses: tj-actions/changed-files@v40
-      - name: List all changed files
+      - name: List all changed file
         run: | 
           for file in ${{steps.changed-files.outputs.all_changed_files}};do
             echo "$file was changed"
@@ -32,10 +32,10 @@ jobs:
 
       - name: Commit and push version increments
         run: | 
-         git config user.name "P1989singh"
-         git config user.email "prmkmrsingh@yahoo.in"
-         git add version.txt
-         git commit -m "Semantic version increment ${{steps.versioning.outputs.version}}"    
-         git push -u origin main
+          git config user.name "P1989singh"
+          git config user.email "prmkmrsingh@yahoo.in"
+          git add version.txt
+          git commit -m "Semantic version increment ${{steps.versioning.outputs.version}}"    
+          git push -u origin main
      
      
