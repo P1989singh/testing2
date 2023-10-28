@@ -34,7 +34,7 @@ jobs:
         run: | 
          git config user.name "P1989singh"
          git config user.email "prmkmrsingh@yahoo.in"
-         git add testing2/.github/workflows/src/*.txt
+         git add version.txt
          git commit -m "Semantic version increment ${{steps.versioning.outputs.version}}"    
          git push -u origin main
      
