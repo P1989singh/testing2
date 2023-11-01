@@ -1,6 +1,6 @@
 name: Testing Script
 #'on': push
-on:
+  on:
     pull_request:
     branches:
       - main
