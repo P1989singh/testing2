@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0
       - name: semantic versioning
         id: versioning
-        uses: paulHatch/semantic-version@v4.0.2
+        uses: ./semantic-version@v4.0.2
         with:
           branch: main
           tag_prefix: v
@@ -19,7 +19,7 @@ jobs:
           format: 'v${major}.${minor}.${patch}-prerelease ${increment}'
       - name: Get Changed Files
         id: changed-files
-        uses: tj-actions/changed-files@v40
+        uses: ./changed-files@v40
         with: 
            files: src/*.{txt,sql}
       - name: List all changed file
